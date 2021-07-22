@@ -38,7 +38,7 @@ export default {
     ])
   },
   async mounted () {
-    this.GET_POSTS_API()
+    this.GET_POSTS_API(4) // количество постов
   }
 }
 </script>

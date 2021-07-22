@@ -17,7 +17,7 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    GET_POSTS_API ({ commit, limit = 15 }) {
+    GET_POSTS_API ({ commit }, limit) { //переменная для количества постов
       return axios('https://jsonplaceholder.typicode.com/posts?_limit=' + limit, {
       })
         .then(function (response) {
