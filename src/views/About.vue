@@ -2,9 +2,12 @@
   <div class="about">
     <div class="container">
       <h1>This is an about page</h1>
-      <div class="about__quantity">Опубликовано постов: {{POSTS_LENGTH}}</div>
-      <div>Получить данные!</div>
-      <div class="about__wrapper">
+      <div class="about__btn" @click="showPosts = !showPosts">Получить данные!</div>
+      <div class="about__quantity">Опубликовано постов:
+        <span v-if="showPosts == false">0</span>
+        <span v-if="showPosts == true">{{POSTS_LENGTH}}</span>
+      </div>
+      <div class="about__wrapper" v-if="showPosts == true">
         <div class="about__item" v-for="item in POSTS" :key="item.id">
           <div class="about__item-title">{{item.title}}</div>
           <div>{{item.body}}</div>
@@ -23,7 +26,8 @@ export default {
   },
   data: function () {
     return {
-      text: 1
+      text: 1,
+      showPosts: false
     }
   },
   methods: {
@@ -38,7 +42,7 @@ export default {
     ])
   },
   async mounted () {
-    this.GET_POSTS_API(4) // количество постов
+    this.GET_POSTS_API(4) // (количество постов)
   }
 }
 </script>
@@ -60,6 +64,14 @@ export default {
     &__quantity {
       font-size: 20px;
       font-weight: bold;
+    }
+    &__btn {
+      display: inline-block;
+      padding: 10px 10px;
+      text-align: center;
+      border: 1px solid #000;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
     &__item {
       text-align: left;
