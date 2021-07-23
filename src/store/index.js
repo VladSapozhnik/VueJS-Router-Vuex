@@ -22,26 +22,17 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    GET_POSTS_API ({ commit }, limit) { // переменная для количества постов
-      return axios('https://jsonplaceholder.typicode.com/posts?_limit=' + limit, {
-      })
-        .then(function (response) {
-          commit('SET_POSTS_TO_MUTATIONS', response.data) // commit(1 - мутация которою хотим вызвать. 2 - данные которые хотим положить)
-        })
+    async GET_POSTS_API ({ commit }, limit) { // переменная для количества постов
+      const response = await axios('https://jsonplaceholder.typicode.com/posts?_limit=' + limit, {})
+      commit('SET_POSTS_TO_MUTATIONS', response.data) // commit(1 - мутация которою хотим вызвать. 2 - данные которые хотим положить)
     },
-    GET_ALBUM_API ({ commit }, limit) {
-      return axios('https://jsonplaceholder.typicode.com/photos?_limit=' + limit, {
-      })
-        .then(function (response) {
-          commit('SET_ALBUM_TO_MUTATIONS', response.data)
-        })
+    async GET_ALBUM_API ({ commit }, limit) {
+      const response = await axios('https://jsonplaceholder.typicode.com/photos?_limit=' + limit, {})
+      commit('SET_ALBUM_TO_MUTATIONS', response.data)
     },
-    GET_USERS_API ({ commit }, limit) {
-      return axios('https://jsonplaceholder.typicode.com/users?_limit=' + limit, {
-      })
-        .then(function (response) {
-          commit('SET_USERS_TO_MUTATIONS', response.data)
-        })
+    async GET_USERS_API ({ commit }, limit) {
+      const response = await axios('https://jsonplaceholder.typicode.com/users?_limit=' + limit, {})
+      commit('SET_USERS_TO_MUTATIONS', response.data)
     }
   },
   modules: {

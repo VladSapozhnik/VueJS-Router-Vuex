@@ -2,12 +2,11 @@
   <div class="about">
     <div class="container">
       <h1>This is an about page</h1>
-      <div class="about__btn" @click="showPosts = !showPosts">Получить данные!</div>
+      <div class="about__btn" @click="GET_POSTS_API(15)">Получить данные!</div>
       <div class="about__quantity">Опубликовано постов:
-        <span v-if="showPosts == false">0</span>
-        <span v-if="showPosts == true">{{POSTS_LENGTH}}</span>
+        {{POSTS_LENGTH}}
       </div>
-      <div class="about__wrapper" v-if="showPosts == true">
+      <div class="about__wrapper">
         <div class="about__item" v-for="item in POSTS" :key="item.id">
           <div class="about__item-title">{{item.title}}</div>
           <div>{{item.body}}</div>
@@ -24,12 +23,6 @@ export default {
   props: {
     msg: String
   },
-  data: function () {
-    return {
-      text: 1,
-      showPosts: false
-    }
-  },
   methods: {
     ...mapActions([
       'GET_POSTS_API'
@@ -40,9 +33,6 @@ export default {
       'POSTS',
       'POSTS_LENGTH'
     ])
-  },
-  async mounted () {
-    this.GET_POSTS_API(15) // (количество постов)
   }
 }
 </script>

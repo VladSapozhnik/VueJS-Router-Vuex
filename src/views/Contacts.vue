@@ -1,9 +1,9 @@
 <template>
   <div class="contacts container">
     <h1>This is an contacts page</h1>
-    <div @click="showPosts = !showPosts" class="contacts__btn"><span v-if="showPosts == false">Показать посты</span><span v-if="showPosts == true">Скрыть посты</span></div>
-    <div class="contacts__quantity">Постов на странице: <span v-if="showPosts == false">0</span><span v-if="showPosts == true">{{ALBUM_LENGTH}}</span></div>
-    <div v-if="showPosts == true">
+    <div @click="GET_ALBUM_API(10)" class="contacts__btn">Показать посты</div>
+    <div class="contacts__quantity">Постов на странице: {{ALBUM_LENGTH}}</div>
+    <div>
         <div class="contacts__item" v-for="item in ALBUM" :key="item.id">
           <img class="contacts__item-avatar" :src="item.thumbnailUrl" alt="avatar">
         <div class="contacts__item-title">{{item.title}}</div>
@@ -19,11 +19,6 @@ export default {
   props: {
     msg: String
   },
-  data: function () {
-    return {
-      showPosts: false
-    }
-  },
   methods: {
     ...mapActions([
       'GET_ALBUM_API'
@@ -34,9 +29,6 @@ export default {
       'ALBUM',
       'ALBUM_LENGTH'
     ])
-  },
-  mounted () {
-    this.GET_ALBUM_API(10)
   }
 }
 </script>
