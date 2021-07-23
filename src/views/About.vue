@@ -42,7 +42,7 @@ export default {
     ])
   },
   async mounted () {
-    this.GET_POSTS_API(4) // (количество постов)
+    this.GET_POSTS_API(15) // (количество постов)
   }
 }
 </script>
@@ -72,6 +72,7 @@ export default {
       border: 1px solid #000;
       border-radius: 5px;
       margin-bottom: 10px;
+      cursor: pointer;
     }
     &__item {
       text-align: left;
