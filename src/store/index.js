@@ -24,7 +24,7 @@ export default new Vuex.Store({
   actions: {
     async GET_POSTS_API ({ commit }, limit) { // переменная для количества постов
       const response = await axios('https://jsonplaceholder.typicode.com/posts?_limit=' + limit, {})
-      commit('SET_POSTS_TO_MUTATIONS', response.data) // commit(1 - мутация которою хотим вызвать. 2 - данные которые хотим положить)
+      commit('SET_POSTS_TO_MUTATIONS', response.data)
     },
     async GET_ALBUM_API ({ commit }, limit) {
       const response = await axios('https://jsonplaceholder.typicode.com/photos?_limit=' + limit, {})

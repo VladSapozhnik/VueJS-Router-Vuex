@@ -2,15 +2,15 @@
   <div class="about">
     <div class="container">
       <h1>This is an about page</h1>
-      <div class="about__btn" @click="GET_POSTS_API(15)">Получить данные!</div>
+      <div class="about__btn" @click="GET_POSTS_API(18)">Получить данные!</div>
       <div class="about__quantity">Опубликовано постов:
         {{POSTS_LENGTH}}
       </div>
       <div class="about__wrapper">
-        <div class="about__item" v-for="item in POSTS" :key="item.id">
+        <router-link tag="div" :to="`/about/${item.id}`" class="about__item" v-for="item in POSTS" :key="item.id">
           <div class="about__item-title">{{item.title}}</div>
           <div>{{item.body}}</div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
