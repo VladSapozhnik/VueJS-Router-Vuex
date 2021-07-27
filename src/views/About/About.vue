@@ -2,7 +2,7 @@
   <div class="about">
     <div class="container">
       <h1>This is an about page</h1>
-      <div class="about__btn" @click="GET_POSTS_API(18)">Получить данные!</div>
+      <div class="about__btn" @click="GET_POSTS_API(3)">Получить данные!</div>
       <div class="about__quantity">Опубликовано постов:
         {{POSTS_LENGTH}}
       </div>

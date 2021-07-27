@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from './About'
+import News from './News'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,7 @@ const routes = [
     component: Home
   },
   ...About,
+  ...News,
   {
     path: '/contacts',
     name: 'Contacts',
@@ -36,6 +38,11 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
 })
 
 export default router
