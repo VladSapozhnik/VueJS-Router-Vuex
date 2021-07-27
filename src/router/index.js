@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import About from './About'
 
 Vue.use(VueRouter)
 
@@ -11,17 +12,7 @@ const routes = [
     meta: { title: 'Home' },
     component: Home
   },
-  {
-    path: '/about',
-    name: 'About',
-    meta: { title: 'About' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue')
-  },
-  {
-    path: '/about/:id',
-    meta: { title: 'About-item' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutItem.vue')
-  },
+  ...About,
   {
     path: '/contacts',
     name: 'Contacts',
