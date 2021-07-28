@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+
+// Pages URL
 import About from './About'
 import News from './News'
 
@@ -20,17 +22,6 @@ const routes = [
     name: 'Contacts',
     meta: { title: 'Contacts' },
     component: () => import(/* webpackChunkName: "contacts" */ '../views/Contacts.vue')
-  },
-  {
-    path: '/news',
-    name: 'news',
-    meta: { title: 'News' },
-    component: () => import(/* webpackChunkName: "news" */ '../views/News/News.vue')
-  },
-  {
-    path: '/news/:id',
-    meta: { title: 'News-Post' },
-    component: () => import(/* webpackChunkName: "news" */ '../views/News/NewsPost.vue')
   }
 ]
 

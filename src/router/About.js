@@ -7,20 +7,8 @@ export default [
   },
   {
     path: '/about/:id',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutItem.vue'),
-    children: [
-      {
-        path: '/about/1',
-        meta: { title: 'about-more' }
-      },
-      {
-        path: '/about/2',
-        meta: { title: 'about-items' }
-      },
-      {
-        path: '/about/3',
-        meta: { title: 'about-prod' }
-      }
-    ]
+    name: 'aboutPage',
+    meta: { title: 'about-item' },
+    component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutItem.vue')
   }
 ]

@@ -1,12 +1,9 @@
 <template>
-  <div class="about">
+  <div class="about-item">
     <div class="container">
-      <h1>This is an about Item page {{id}}</h1>
-      <div class="about__wrapper">
-        <div class="about__item" v-for="item in POSTS" :key="item.id">
-          <div class="about__item-title">{{item.title}}</div>
-          <div>{{item.body}}</div>
-        </div>
+      <div class="about-item__wrapper">
+          <div class="about-item__wrapper-title">{{item.title}}</div>
+          <div class="about-item__wrapper-text">{{item.body}}</div>
       </div>
     </div>
   </div>
@@ -21,7 +18,7 @@ export default {
   },
   data: function () {
     return {
-      id: this.$route.params.id
+      item: null
     }
   },
   methods: {
@@ -34,53 +31,30 @@ export default {
       'POSTS'
     ])
   },
-  watch: {
-    $route (toRoute) {
-      this.id = toRoute.params.id
+  created () {
+    const item = this.POSTS.find(item => item.id === this.$route.params.id)
+    if (item) {
+      this.item = item
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-  h1 {
-    color: green;
-    font-size: 20px;
-  }
-  .container {
-    max-width: 1024px;
-    margin: 0 auto;
-  }
-  .about {
-    &__wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+.about-item {
+  padding: 50px 0;
+  border: 1px solid #000;
+  &__wrapper {
+    &-title {
+      font-size: 25px;
+      font-weight: 900;
+      color: green;
+      margin-bottom: 40px;
     }
-    &__quantity {
-      font-size: 20px;
-      font-weight: bold;
-    }
-    &__btn {
-      display: inline-block;
-      padding: 10px 10px;
-      text-align: center;
-      border: 1px solid #000;
-      border-radius: 5px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-    &__item {
-      text-align: left;
-      width: 25%;
-      margin: 8px;
-      border: 1px solid #000;
-      padding: 10px;
-      &-title {
-        margin-bottom: 10px;
-        font-size: 23px;
-        font-weight: bold;
-      }
+    &-text {
+      font-size: 19px;
+      font-weight: 600;
     }
   }
+}
 </style>
