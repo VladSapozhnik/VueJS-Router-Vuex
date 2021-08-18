@@ -1,5 +1,5 @@
 <template>
-  <div class="about-item">
+  <div class="about-item container">
     <div class="container">
       <div class="about-item__wrapper">
           <div class="about-item__wrapper-title">{{item.title}}</div>

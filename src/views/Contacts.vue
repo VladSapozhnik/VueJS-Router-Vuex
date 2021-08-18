@@ -4,10 +4,10 @@
     <div @click="GET_ALBUM_API(10)" class="contacts__btn">Показать посты</div>
     <div class="contacts__quantity">Постов на странице: {{ALBUM_LENGTH}}</div>
     <div>
-        <div class="contacts__item" v-for="item in ALBUM" :key="item.id">
+        <router-link tag="div" :to="{name: 'contactsPages', params: {id: item.id} }" class="contacts__item" v-for="item in ALBUM" :key="item.id">
           <img class="contacts__item-avatar" :src="item.thumbnailUrl" alt="avatar">
-        <div class="contacts__item-title">{{item.title}}</div>
-      </div>
+          <div class="contacts__item-title">{{item.title}}</div>
+      </router-link>
     </div>
   </div>
 </template>

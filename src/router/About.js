@@ -3,7 +3,13 @@ export default [
     path: '/about',
     name: 'About',
     meta: { title: 'About' },
-    component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue'),
+    children: [
+      {
+        path: '*/*',
+        redirect: { name: 'About' }
+      }
+    ]
   },
   {
     path: '/about/:id',

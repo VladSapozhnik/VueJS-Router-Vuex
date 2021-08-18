@@ -4,14 +4,14 @@
     <div class="users__btn" @click="GET_USERS_API(10)">Показать профили</div>
     <div class="users__quantity">USERS: {{USERS_LENGTH}}</div>
     <div class="users__wrapper">
-      <div class="users__item" v-for="user in USERS" :key="user.id">
+      <router-link tag="div" :to="{name: 'pagesItem', params: {id: user.id} }" class="users__item" v-for="user in USERS" :key="user.id">
         <div class="users__item-name users__item-row">Name: {{user.name}}</div>
         <div class="users__item-phone users__item-row">Tel: {{user.phone}}</div>
         <div class="users__item-email users__item-row">Email: {{user.email}}</div>
-        <a :href="user.website" class="users__item-website users__item-row"> {{user.website}}</a>
+        <div :href="user.website" class="users__item-website users__item-row"> {{user.website}}</div>
         <div class="users__item-city users__item-row">City: {{user.address.city}}</div>
         <div class="users__item-street users__item-row">Street: {{user.address.street}}</div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -77,11 +77,14 @@ export default {
     box-sizing: border-box;
     padding: 30px 15px;
     text-align: left;
+    cursor: pointer;
     &-name {
       font-weight: 700;
     }
     &-website {
       display: block;
+      color: rgb(14, 141, 14);
+      text-decoration: underline;
     }
     &-row {
       font-size: 18px;

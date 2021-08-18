@@ -10,10 +10,22 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'Home',
     meta: { title: 'Home' },
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '/home/*',
+        redirect: { name: 'Home' }
+      }
+    ]
+  },
+  {
+    path: '/home/:id',
+    name: 'pagesItem',
+    meta: { title: 'Pages-Item' },
+    component: () => import(/* webpackChunkName: "news" */ '../views/Home-profile.vue')
   },
   ...About,
   ...News,
@@ -21,7 +33,25 @@ const routes = [
     path: '/contacts',
     name: 'Contacts',
     meta: { title: 'Contacts' },
-    component: () => import(/* webpackChunkName: "contacts" */ '../views/Contacts.vue')
+    component: () => import(/* webpackChunkName: "contacts" */ '../views/Contacts.vue'),
+    children: [
+      {
+        path: '/contacts/*',
+        redirect: { name: 'Home' }
+      }
+    ]
+  },
+  {
+    path: '/contacts/:id',
+    name: 'contactsPages',
+    meta: { title: 'about-item' },
+    component: () => import(/* webpackChunkName: "news" */ '../views/Contacts-item.vue')
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    meta: { title: 'Not Found 404' },
+    component: () => import(/* webpackChunkName: "NotFound" */ '../views/404.vue')
   }
 ]
 
