@@ -8,7 +8,7 @@
         <div class="users__item-name users__item-row">Name: {{user.name}}</div>
         <div class="users__item-phone users__item-row">Tel: {{user.phone}}</div>
         <div class="users__item-email users__item-row">Email: {{user.email}}</div>
-        <div :href="user.website" class="users__item-website users__item-row"> {{user.website}}</div>
+        <div :href="user.website" class="users__item-row">Website: <span>{{user.website}}</span></div>
         <div class="users__item-city users__item-row">City: {{user.address.city}}</div>
         <div class="users__item-street users__item-row">Street: {{user.address.street}}</div>
       </router-link>
@@ -81,8 +81,7 @@ export default {
     &-name {
       font-weight: 700;
     }
-    &-website {
-      display: block;
+    span {
       color: rgb(14, 141, 14);
       text-decoration: underline;
     }

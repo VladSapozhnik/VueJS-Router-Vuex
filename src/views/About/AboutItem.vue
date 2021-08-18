@@ -48,7 +48,7 @@ export default {
     &-title {
       font-size: 25px;
       font-weight: 900;
-      color: green;
+      color: #42b983;
       margin-bottom: 40px;
     }
     &-text {

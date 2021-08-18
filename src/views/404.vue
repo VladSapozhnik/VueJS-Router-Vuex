@@ -17,6 +17,7 @@ export default {
     &-title {
       font-size: 25px;
       font-weight: 900;
+      color: #18681c;
     }
   }
 </style>

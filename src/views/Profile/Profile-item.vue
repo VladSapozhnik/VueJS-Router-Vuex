@@ -1,23 +1,23 @@
 <template>
-  <div class="user container">
-    <div class="user__title">Profile</div>
-    <div class="user__subtitle">User: {{user.id}}</div>
-    <ul class="user__item">
+  <div class="profile container">
+    <div class="profile__title">Profile</div>
+    <div class="profile__subtitle">User: {{user.id}}</div>
+    <ul class="profile__item">
       <li><span>Name:</span> {{user.name}}</li>
       <li><span>Username:</span> {{user.username}}</li>
       <li><span>Email:</span> {{user.email}}</li>
       <li><span>Phone:</span> {{user.phone}}</li>
       <li><span>Website:</span> {{user.website}}</li>
     </ul>
-    <div class="user__subtitle">Address:</div>
-    <ul class="user__item">
+    <div class="profile__subtitle">Address:</div>
+    <ul class="profile__item">
       <li><span>City:</span> {{user.address.city}}</li>
       <li><span>Street:</span> {{user.address.street}}</li>
       <li><span>Suite:</span> {{user.address.suite}}</li>
       <li><span>Zipcode:</span> {{user.address.zipcode}}</li>
     </ul>
-    <div class="user__subtitle">Company:</div>
-    <ul class="user__item">
+    <div class="profile__subtitle">Company:</div>
+    <ul class="profile__item">
       <li><span>Company bs:</span> {{user.company.bs}}</li>
       <li><span>Company catchPhrase:</span> {{user.company.catchPhrase}}</li>
       <li><span>Company name:</span> {{user.company.name}}</li>
@@ -56,7 +56,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-  .user {
+  .profile {
     text-align: left;
     &__title {
       text-align: center;
