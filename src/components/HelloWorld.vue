@@ -1,6 +1,7 @@
 <template>
   <div class="users">
     <h1>{{text}}</h1>
+    <div>Welcome</div>
   </div>
 </template>
 
