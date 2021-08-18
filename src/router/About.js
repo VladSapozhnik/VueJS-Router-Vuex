@@ -6,7 +6,7 @@ export default [
     component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue'),
     children: [
       {
-        path: '*/*',
+        path: '/about/*',
         redirect: { name: 'About' }
       }
     ]

@@ -1,10 +1,23 @@
 <template>
   <div class="users">
     <h1>{{text}}</h1>
+    <div class="users__btn" @click="GET_USERS_API(10)">Показать профили</div>
+    <div class="users__quantity">USERS: {{USERS_LENGTH}}</div>
+    <div class="users__wrapper">
+      <router-link tag="div" :to="{name: 'Profile-Item', params: {id: user.id} }" class="users__item" v-for="user in USERS" :key="user.id">
+        <div class="users__item-name users__item-row">Name: {{user.name}}</div>
+        <div class="users__item-phone users__item-row">Tel: {{user.phone}}</div>
+        <div class="users__item-email users__item-row">Email: {{user.email}}</div>
+        <div :href="user.website" class="users__item-website users__item-row"> {{user.website}}</div>
+        <div class="users__item-city users__item-row">City: {{user.address.city}}</div>
+        <div class="users__item-street users__item-row">Street: {{user.address.street}}</div>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'HelloWorld',
   props: {
@@ -12,8 +25,19 @@ export default {
   },
   data: function () {
     return {
-      text: 'Home'
+      text: 'Profile'
     }
+  },
+  computed: {
+    ...mapGetters([
+      'USERS',
+      'USERS_LENGTH'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'GET_USERS_API'
+    ])
   }
 }
 </script>

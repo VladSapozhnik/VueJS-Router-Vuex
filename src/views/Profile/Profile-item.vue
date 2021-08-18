@@ -1,7 +1,7 @@
 <template>
   <div class="user container">
-    <div class="user__title">User</div>
-    <div class="user__subtitle">User:</div>
+    <div class="user__title">Profile</div>
+    <div class="user__subtitle">User: {{user.id}}</div>
     <ul class="user__item">
       <li><span>Name:</span> {{user.name}}</li>
       <li><span>Username:</span> {{user.username}}</li>
