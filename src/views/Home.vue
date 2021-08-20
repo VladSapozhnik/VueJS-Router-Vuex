@@ -12,6 +12,21 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  methods: {
+    func: function () {
+      const test = function () {
+        console.log(this)
+      }
+      const test2 = () => {
+        console.log(this)
+      }
+      test()
+      test2()
+    }
+  },
+  created: function () {
+    this.func()
   }
 }
 </script>

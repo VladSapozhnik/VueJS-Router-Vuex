@@ -1,4 +1,21 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
+import module1 from './modules/module1'
+import module2 from './modules/module2'
+import module3 from './modules/module3'
+
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  strict: true,
+  modules: {
+    module1,
+    module2,
+    module3
+  }
+})
+
+/* import Vue from 'vue'
 import axios from 'axios'
 import Vuex from 'vuex'
 
@@ -57,4 +74,4 @@ export default new Vuex.Store({
       return state.Users.length
     }
   }
-})
+}) */
